@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { DataService } from "src/app/shared/services/data.service";
 
 @Component({
     selector: 'steps-nav',
@@ -8,7 +9,15 @@ import { Component } from "@angular/core";
 
 export class StepsNavComponent {
     stepsList = [
-        ["Dados básicos", "basic"],
+        ["Dados básicos", "basics"],
         ["Experiências profissionais", "professional"]
     ]
+
+    constructor(private dataService: DataService) {
+
+    }
+
+    changeStep(page: string) {
+        this.dataService.changePage(page);
+    }
 }

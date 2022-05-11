@@ -1,4 +1,4 @@
 <div class="panel">
     PASSOS
-    <li *ngFor="let step of stepsList">{{step[0]}}</li>
+    <li *ngFor="let step of stepsList"><a href="javascript:void(0)" (click)="changeStep(step[1])">{{step[0]}}</a></li>
 </div>

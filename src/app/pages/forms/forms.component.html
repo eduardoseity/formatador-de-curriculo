@@ -1,1 +1,17 @@
-<input-text (sendValueEvent)="checkValue($event)"></input-text>
+<div id="basics" *ngIf="currentPage == 'basics'">
+    <h1>Olá, vamos começar com alguns dados básicos.</h1>
+    <br>
+    <input-text [label]="'Nome completo'" [name]="'nome'" [placeholder]="'Ex.: José Maria da Silva'" (keyUpEvent)="updateData($event, 'name')"></input-text>
+    <br>
+    <input-text [label]="'Telefone'" [name]="'telefone'" [placeholder]="'Ex.: (11) 99999-999'" (keyUpEvent)="updateData($event, 'tel')"></input-text>
+    <br>
+    <input-text [label]="'Endereço'" [name]="'endereco'" [placeholder]="'Ex.: Av. Paulista, 2200'" (keyUpEvent)="updateData($event, 'address')"></input-text>
+    <br>
+    <input-text [label]="'Bairro'" [name]="'bairro'" [placeholder]="'Ex.: Consolação'"  (keyUpEvent)="updateData($event, 'district')"></input-text>
+    <br>
+    <input-text [label]="'Cidade'" [name]="'cidade'" [placeholder]="'Ex.: São Paulo'" (keyUpEvent)="updateData($event, 'state')"></input-text>
+    <br>
+    <input-text [label]="'Estado'" [name]="'estado'" [placeholder]="'Ex.: SP'" (keyUpEvent)="updateData($event, 'state')"></input-text>
+    <br>
+    <input-text [label]="'País'" [name]="'pais'" [placeholder]="'Ex.: Brasil'" (keyUpEvent)="updateData($event, 'country')"></input-text>
+</div>

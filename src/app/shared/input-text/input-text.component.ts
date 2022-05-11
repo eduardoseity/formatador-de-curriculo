@@ -7,10 +7,14 @@ import { Component, EventEmitter, Input, Output } from "@angular/core";
 })
 
 export class InputTextComponent {
-    @Input() error:string | undefined;
-    @Output() sendValueEvent = new EventEmitter<string>();
+    @Input() value: string = "";
+    @Input() label: string | undefined;
+    @Input() name: string | undefined;
+    @Input() placeholder: string = "";
 
-    sendValue(event: any) {
-        this.sendValueEvent.emit(event);
+    @Output() keyUpEvent: EventEmitter<string> = new EventEmitter();
+
+    onKeyUp(event: any) {
+        this.keyUpEvent?.emit(event.target.value);
     }
 }
