@@ -17,7 +17,8 @@ export class FormsComponent implements OnInit, OnDestroy {
         district: "",
         city: "",
         state: "",
-        country: ""
+        country: "",
+        career: []
     }
 
     stepSubscription?: Subscription;
@@ -32,7 +33,7 @@ export class FormsComponent implements OnInit, OnDestroy {
         this.stepSubscription?.unsubscribe();
     }
 
-    updateData(value: string, dataKey: keyof typeof this.data) {
+    updateData(value: any, dataKey: keyof typeof this.data) {
         this.data[dataKey] = value;
     }
 }

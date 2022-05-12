@@ -10,7 +10,7 @@ import { DataService } from "src/app/shared/services/data.service";
 export class StepsNavComponent {
     stepsList = [
         ["Dados básicos", "basics"],
-        ["Experiências profissionais", "professional"]
+        ["Experiências profissionais", "career"]
     ]
 
     constructor(private dataService: DataService) {

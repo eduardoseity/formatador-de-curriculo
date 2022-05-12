@@ -15,3 +15,14 @@
     <br>
     <input-text [label]="'País'" [name]="'pais'" [placeholder]="'Ex.: Brasil'" (keyUpEvent)="updateData($event, 'country')"></input-text>
 </div>
+<div id="career" *ngIf="currentPage == 'career'">
+    <h1>Agora conte sobre suas experiências profissionais</h1>
+    <br>
+    <input-text [label]="'Cargo'" [name]="'charge'" [placeholder]="'Ex.: Operador de máquina'" (keyUpEvent)="updateData($event, 'country')"></input-text>
+    <br>
+    <input-text [label]="'Empresa'" [name]="'corporate'" [placeholder]="'Ex.: Xpto'" (keyUpEvent)="updateData($event, 'country')"></input-text>
+    <br>
+    <input-text [label]="'Início'" [name]="'start'" [placeholder]="'Ex.: 01/01/2000'" (keyUpEvent)="updateData($event, 'country')"></input-text>
+    <br>
+    <input-text [label]="'Término'" [name]="'end'" [placeholder]="'Ex.: 01/06/2005'" (keyUpEvent)="updateData($event, 'country')"></input-text>
+</div>
