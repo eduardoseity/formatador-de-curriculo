@@ -13,8 +13,13 @@ export class InputTextComponent {
     @Input() placeholder: string = "";
 
     @Output() keyUpEvent: EventEmitter<string> = new EventEmitter();
+    @Output() loadEvent: EventEmitter<string> = new EventEmitter();
 
     onKeyUp(event: any) {
-        this.keyUpEvent?.emit(event.target.value);
+        this.keyUpEvent.emit(event);
+    }
+    
+    onLoad(event: any) {
+        this.loadEvent.emit(event);
     }
 }

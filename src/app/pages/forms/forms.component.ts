@@ -1,5 +1,6 @@
-import { Component, OnDestroy, OnInit, ViewChild } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
+
 import { DataService } from "src/app/shared/services/data.service";
 
 @Component({
@@ -18,10 +19,15 @@ export class FormsComponent implements OnInit, OnDestroy {
         city: "",
         state: "",
         country: "",
-        career: []
+        career: [{
+            charge: "",
+            corporate: "",
+            start: "",
+            end: ""
+        }]
     }
 
-    stepSubscription?: Subscription;
+    stepSubscription!: Subscription;
 
     constructor(private dataService: DataService) { }
 
@@ -30,10 +36,37 @@ export class FormsComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        this.stepSubscription?.unsubscribe();
+        this.stepSubscription.unsubscribe();
     }
 
-    updateData(value: any, dataKey: keyof typeof this.data) {
-        this.data[dataKey] = value;
+    updateData(event: any, dataKey: keyof typeof this.data, index?: number) {
+        if (dataKey === "career") {
+            var key: keyof typeof this.data.career[0];
+            key = event.target.name;
+            this.data["career"][index!][key] = event.target.value;
+        }
+        else {
+            this.data[dataKey] = event.target.value;
+        }
+    }
+
+    addNewCareer() {
+        this.data.career.push({
+            charge: "",
+            corporate: "",
+            start: "",
+            end: ""
+        })
+    }
+
+    removeCareer(index: number) {
+        this.data.career.splice(index, 1);
+    }
+
+    getValue(event: any) {
+        console.log(this.data.career)
+        var key: keyof typeof this.data;
+        key = event.target.name;
+        event.target.value = this.data[key];
     }
 }
