@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
+import { Data } from "src/app/interface/data";
 
 import { DataService } from "src/app/shared/services/data.service";
 
@@ -11,21 +12,24 @@ import { DataService } from "src/app/shared/services/data.service";
 
 export class FormsComponent implements OnInit, OnDestroy {
     currentPage = "basics";
-    data = {
-        name: "",
-        tel: "",
-        address: "",
-        district: "",
-        city: "",
-        state: "",
-        country: "",
+    data: Data = {
+        name: "José Maria da Silva",
+        email: "jmaria@mail.com.br",
+        tel: "(11) 99999-3333",
+        address: "Av. Paulista",
+        district: "Indpendência",
+        city: "São Paulo",
+        state: "SP",
+        country: "Brasil",
         career: [{
-            charge: "",
-            corporate: "",
-            start: "",
-            end: ""
+            charge: "Encarregado",
+            corporate: "Xpto",
+            start: "01/01/2021",
+            end: "01/01/2022",
+            activities: "RRRR",
+            show: "true"
         }]
-    }
+    }; 
 
     stepSubscription!: Subscription;
 
@@ -43,11 +47,12 @@ export class FormsComponent implements OnInit, OnDestroy {
         if (dataKey === "career") {
             var key: keyof typeof this.data.career[0];
             key = event.target.name;
-            this.data["career"][index!][key] = event.target.value;
+            this.data.career[index!][key] = event.target.value;
         }
         else {
             this.data[dataKey] = event.target.value;
         }
+        this.dataService.updateData(this.data);
     }
 
     addNewCareer() {
@@ -55,12 +60,31 @@ export class FormsComponent implements OnInit, OnDestroy {
             charge: "",
             corporate: "",
             start: "",
-            end: ""
-        })
+            end: "",
+            activities: "",
+            show: "true"
+        });
+
+        for (var i=0; i < this.data.career.length - 1; i++) {
+            this.hideCareer(i);
+        }
     }
 
     removeCareer(index: number) {
         this.data.career.splice(index, 1);
+    }
+
+    toggleCareer(index: number) {
+        if (this.data.career[index].show == "true") {
+            this.data.career[index].show = "false";
+        }
+        else {
+            this.data.career[index].show = "true";
+        }
+    }
+
+    hideCareer(index: number) {
+        this.data.career[index].show = "false";
     }
 
     getValue(event: any) {

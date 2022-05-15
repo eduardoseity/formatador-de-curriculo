@@ -1,0 +1,28 @@
+* {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 12pt;
+}
+
+svg {
+    display: inline-block;
+}
+
+.name {
+    font-size: 30pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding-top: 20px;
+}
+.email {
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+.career {
+    font-size: 20pt;
+    font-weight: bold;
+    padding-top: 20pt;
+    padding-bottom: 10pt;
+}
+.charge {
+    text-transform: uppercase;
+}

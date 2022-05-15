@@ -6,7 +6,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ContentComponent } from './layout/content/content.component';
 import { StepsNavComponent } from './layout/steps-nav/steps-nav.component';
+import { ViewerComponent } from './layout/viewer/viewer.component';
 import { FormsComponent } from './pages/forms/forms.component';
+import { ResumeViewerComponent } from './pages/resume-viewer/resume-viewer.component';
+import { StringValidate } from './pipe/string-validate.pipe';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
@@ -14,7 +17,10 @@ import { SharedModule } from './shared/shared.module';
     AppComponent,
     StepsNavComponent,
     ContentComponent,
-    FormsComponent
+    FormsComponent,
+    ViewerComponent,
+    ResumeViewerComponent,
+    StringValidate
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="297mm" height="210mm">
+    <foreignObject  x="0" y="0" width="100%" height="100%" >
+        <xhtml:div xmlns="http://www.w3.org/1999/xhtml" style="background-color: aqua;">
+            <div class="name" *ngIf="(data?.name! | stringValidate)">{{data?.name}}</div>
+            <div class="email" *ngIf="(data?.email! | stringValidate)">{{data?.email}}</div>
+            <div class="tel" *ngIf="(data?.tel! | stringValidate)">Tel.: {{data?.tel}}</div>
+            <div class="address" *ngIf="(data?.address! | stringValidate)">{{data?.address}}</div>
+            <div class="district" *ngIf="(data?.district! | stringValidate)">{{data?.district}}, {{data?.city}} - {{data?.state}}</div>
+            <ng-template [ngIf]="(data?.career[0].charge | stringValidate)">
+                <div class="career">Experiências profisionais</div>
+                <div *ngFor="let career of data?.career">
+                    <div>{{career.start}} - {{career.end}}</div>
+                    <div class="charge">{{career.charge}}</div>
+                </div>
+            </ng-template>
+        </xhtml:div> 
+    </foreignObject> 
+  </svg>

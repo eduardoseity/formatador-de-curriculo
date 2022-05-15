@@ -1,2 +1,5 @@
 <label *ngIf="label !== undefined" [for]="name">{{label}}<br></label>
-<input type="text" [value]="value" (keyup)="onKeyUp($event)" [name]="name" [placeholder]="placeholder" (load)="onLoad($event)">
+<textarea *ngIf="type == 'textarea'; else elseBlock" [value]="value" (keyup)="onKeyUp($event)" [name]="name" [placeholder]="placeholder"></textarea>
+<ng-template #elseBlock>
+    <input type="text" [value]="value" (keyup)="onKeyUp($event)" [name]="name" [placeholder]="placeholder">
+</ng-template>

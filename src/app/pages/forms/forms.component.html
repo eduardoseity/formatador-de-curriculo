@@ -3,6 +3,8 @@
     <br>
     <input-text [label]="'Nome completo'" [name]="'name'" [value]="data.name" [placeholder]="'Ex.: José Maria da Silva'" (keyUpEvent)="updateData($event, 'name')"></input-text>
     <br>
+    <input-text [label]="'E-mail'" [name]="'email'" [value]="data.email" [placeholder]="'Ex.: jose123@mail.com.br'" (keyUpEvent)="updateData($event, 'email')"></input-text>
+    <br>
     <input-text [label]="'Telefone'" [name]="'tel'" [value]="data.tel" [placeholder]="'Ex.: (11) 99999-999'" (keyUpEvent)="updateData($event, 'tel')"></input-text>
     <br>
     <input-text [label]="'Endereço'" [name]="'address'" [value]="data.address" [placeholder]="'Ex.: Av. Paulista, 2200'" (keyUpEvent)="updateData($event, 'address')"></input-text>
@@ -18,15 +20,20 @@
 <div id="career" *ngIf="currentPage == 'career'">
     <h1>Agora conte sobre suas experiências profissionais</h1>
     <div *ngFor="let c of data.career; index as i">
-        <div id="career-{{i}}">
+        <br>
+        <div id="career-expand-{{i}}">
+            <button (click)="toggleCareer(i)">></button>{{data.career[i].charge}}
+        </div>
+        <div id="career-{{i}}" *ngIf="data.career[i].show == 'true'">
+            <input-text [label]="'Cargo'" [name]="'charge'" [placeholder]="'Ex.: Operador de máquina'" [value]="c.charge" (keyUpEvent)="updateData($event, 'career', i)"></input-text>
             <br>
-            <input-text [label]="'Cargo'" [name]="'charge'" [value]="data.career[i].charge" [placeholder]="'Ex.: Operador de máquina'" [value]="c.charge" (keyUpEvent)="updateData($event, 'career', i)"></input-text>
+            <input-text [label]="'Empresa'" [name]="'corporate'" [placeholder]="'Ex.: Xpto'" [value]="c.corporate" (keyUpEvent)="updateData($event, 'career', i)"></input-text>
             <br>
-            <input-text [label]="'Empresa'" [name]="'corporate'" [value]="data.career[i].corporate" [placeholder]="'Ex.: Xpto'" [value]="c.corporate" (keyUpEvent)="updateData($event, 'career', i)"></input-text>
+            <input-text [label]="'Início'" [name]="'start'" [placeholder]="'Ex.: 01/01/2000'" [value]="c.start" (keyUpEvent)="updateData($event, 'career', i)"></input-text>
             <br>
-            <input-text [label]="'Início'" [name]="'start'" [value]="data.career[i].start" [placeholder]="'Ex.: 01/01/2000'" [value]="c.start" (keyUpEvent)="updateData($event, 'career', i)"></input-text>
+            <input-text [label]="'Término'" [name]="'end'" [placeholder]="'Ex.: 01/06/2005'" [value]="c.end" (keyUpEvent)="updateData($event, 'career', i)"></input-text>
             <br>
-            <input-text [label]="'Término'" [name]="'end'" [value]="data.career[i].end" [placeholder]="'Ex.: 01/06/2005'" [value]="c.end" (keyUpEvent)="updateData($event, 'career', i)"></input-text>
+            <input-text [type]="'textarea'" [label]="'Atividades'" [name]="'activities'" [placeholder]="''" [value]="c.activities" (keyUpEvent)="updateData($event, 'career', i)"></input-text>
             <br>
             <button (click)="removeCareer(i)" *ngIf="i !== 0">-</button>
         </div>
