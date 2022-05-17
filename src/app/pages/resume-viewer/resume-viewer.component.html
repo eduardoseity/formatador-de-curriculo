@@ -10,7 +10,9 @@
                 <div class="career">Experiências profisionais</div>
                 <div *ngFor="let career of data?.career">
                     <div>{{career.start}} - {{career.end}}</div>
-                    <div class="charge">{{career.charge}}</div>
+                    <div class="corporation"><strong>EMPRESA:</strong> {{career.corporate}}</div>
+                    <div class="charge"><strong>CARGO:</strong> {{career.charge}}</div>
+                    <div class="activities" [innerText]="text"></div>
                 </div>
             </ng-template>
         </xhtml:div> 

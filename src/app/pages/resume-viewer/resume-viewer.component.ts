@@ -9,14 +9,16 @@ import { DataService } from "src/app/shared/services/data.service";
 })
 
 export class ResumeViewerComponent {
+    text = "<br>ggg<br>"
     data: Data | undefined;
     constructor(private dataService: DataService) {
-        dataService.updateDataObservable.subscribe(data => {
+        this.dataService.updateDataObservable.subscribe(data => {
             this.update(data);
         });
     }
 
     update(data: Data) {
         this.data = data;
+        console.log(this.data?.career[0].activities.indexOf('\n'));
     }
 }

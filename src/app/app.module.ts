@@ -9,6 +9,7 @@ import { StepsNavComponent } from './layout/steps-nav/steps-nav.component';
 import { ViewerComponent } from './layout/viewer/viewer.component';
 import { FormsComponent } from './pages/forms/forms.component';
 import { ResumeViewerComponent } from './pages/resume-viewer/resume-viewer.component';
+import { ReplaceString } from './pipe/replace-string.pipe';
 import { StringValidate } from './pipe/string-validate.pipe';
 import { SharedModule } from './shared/shared.module';
 
@@ -20,7 +21,8 @@ import { SharedModule } from './shared/shared.module';
     FormsComponent,
     ViewerComponent,
     ResumeViewerComponent,
-    StringValidate
+    StringValidate,
+    ReplaceString
   ],
   imports: [
     BrowserModule,
